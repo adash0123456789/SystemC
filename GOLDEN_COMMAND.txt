@@ -1,2 +1,22 @@
+mkdir objdir
+cd objdir/
+sudo mkdir /usr/local/system-2.3.3/
+sudo ../configure --prefix=/usr/local/system-2.3.3/
+sudo make
+sudo make install
+
+
 export SYSTEMC_HOME=/usr/local/system-2.3.3/
 g++ -I. -I$SYSTEMC_HOME/include -L. -L$SYSTEMC_HOME/lib-linux64 -Wl,-rpath=$SYSTEMC_HOME/lib-linux64 -o hello hello_world.cpp -lsystemc -lm
+
+--> check example and_with_testbench
+
+
+mkdir objdir
+cd objdir/
+sudo mkdir /usr/local/system-ams-2.3.3/
+sudo ../configure --prefix=/usr/local/system-ams-2.3.3/ --with-systemc=/usr/local/system-2.3.3/ --disable-systemc_compile_check
+sudo make
+sudo make install
+
+--> check example comparator-tdf
